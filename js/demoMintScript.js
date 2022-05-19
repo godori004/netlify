@@ -168,7 +168,9 @@ async function myNFTtokenId(){
 
 async function mintNFT(){
 
-    let cnt = 0; 
+    let cnt         = 0
+    let amount      = 1
+    let mintPrice   = 1000000000000000000
 
     cnt = await balanceOf()
     const uri = "https://gateway.pinata.cloud/ipfs/QmdLCoKbTywRYhn4E2MqHAS85dd6B7zgAHUczZkAtPFVc7"
@@ -180,26 +182,54 @@ async function mintNFT(){
         typedInit()
         return
     }
-
+    console.log('1')
+    const total_value = BigNumber(amount * mintPrice);
+    console.log('2')
     const myContract = new caver.klay.Contract(ABI, CONTRACTADDRESS);
     console.log("account : " + account)
-    const value      =  await myContract.methods.mintNFT(uri).estimateGas({
+
+    /*const value      =  await myContract.methods.mintNFT(uri).estimateGas({
         from: account,
-        gas: 6000000
+        gas: 6000000,
+        value: caver.utils.toPeb(1, 'KLAY')
     })
     .then(function (gasAmount) {
+        console.log("test")
         estmated_gas = gasAmount;
         console.log("gas :" + estmated_gas);
         myContract.methods.mintNFT(uri)
             .send({
                 from: account,
-                gas: estmated_gas
+                gas: estmated_gas,
+                value: caver.utils.toPeb(1, 'KLAY')
             })
     })
     .catch(function (error) {
         console.log(error);
         alert("민팅에 실패하였습니다.");
-    });
+    });*/
+
+    await myContract.methods.mintNFT(uri)
+        .estimateGas({
+            from: account,
+            gas: 6000000,
+            value: total_value
+        })
+        .then(function (gasAmount) {
+            estmated_gas = gasAmount;
+            console.log("gas :" + estmated_gas);
+            myContract.methods.mintNFT(uri)
+                .send({
+                    from: account,
+                    gas: estmated_gas,
+                    value: total_value
+                })
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert("민팅에 실패하였습니다.");
+        });
+
     openNav()
     exScreen()
     console.log(value)
