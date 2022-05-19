@@ -53,7 +53,7 @@ body {
   height: 102%;
   left: 0;
   top: 0;
-  background-color: #c4d70f;
+  background-color: #1b1717;
   clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 100%);
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 .custom_menu-btn {
-  z-index: 9;
+  z-index: 1;
   position: absolute;
   right: 15px;
   top: 14px;
@@ -259,7 +259,7 @@ a:focus {
 }
 
 .slider_detail {
-  color: #fefeff;
+  color: #f15922;
 }
 
 .slider_detail h1 {
@@ -268,7 +268,7 @@ a:focus {
 }
 
 .slider_detail h1 span {
-  color: #010106;
+  color: #fafafc;
 }
 
 .slider_detail p {
@@ -289,7 +289,7 @@ a:focus {
 }
 
 .slider_img-box img {
-  width: 100%;
+  height: 550px;
   position: relative;
   z-index: 2;
 }
@@ -427,6 +427,12 @@ a:focus {
 
 }
 
+.about_img-box img{
+  width: 100px;
+  height: 100px;
+  border-radius: 30%;
+}
+
 .about_card .about-detail p {
   margin-top: 15px;
 }
@@ -438,14 +444,14 @@ a:focus {
 .about_card a {
   display: inline-block;
   padding: 8px 25px;
-  border: 2px solid #c4d70f;
-  color: #c4d70f;
+  border: 2px solid #fc5d35;
+  color: #fc5d35;
   border-radius: 35px;
   margin-top: 55px;
 }
 
 .about_card a:hover {
-  background-color: #c4d70f;
+  background-color: #fc5d35;
   color: #fefeff;
 }
 
@@ -481,7 +487,7 @@ a:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-bottom: 1px solid #9be604;
+  border-bottom: 1px solid #fc5d35;
 }
 
 .team_card {
@@ -509,7 +515,7 @@ a:focus {
 }
 
 .team_follow h6 {
-  color: #9be604;
+  color: #fc5d35;
 }
 
 /* end team section */
@@ -560,7 +566,7 @@ a:focus {
 
 .contact_form-container button {
   border: none;
-  background-color: #a0e711;
+  background-color: #fc5d35;
   color: #fff;
   padding: 12px 45px;
   font-size: 14px;
@@ -665,7 +671,7 @@ a:focus {
 
 
 .info_section .form_container button {
-  background-color: #a0e711;
+  background-color: #fc5d35;
   border: none;
   outline: none;
   color: #fff;
@@ -704,3 +710,68 @@ a:focus {
 }
 
 /* end footer section*/
+
+
+/* demo */
+#link {
+  font-size: xx-large;
+  color: white;
+  position:absolute;
+  top: 50px;
+  left:50%;
+  font
+}
+
+.button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 160px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  font-family: sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #ccc;
+}
+.button:before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #ffffff;
+  color: #010106;
+  transition: 0.5s;
+  transform-origin: bottom;
+  transform: translatey(-100%) rotatex(90deg);
+}
+.button:hover:before
+{
+  transform: translatey(0) rotatex(0deg);
+}
+
+.button:after{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #010106;
+  color: #fff;
+  transition: 0.5s;
+  transform-origin: top;
+  transform: translatey(0) rotatex(0deg);
+}
+.button:hover:after
+{
+  transform: translatey(100%) rotatex(90deg);
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
+  <link href="./assets/favicon.ico" rel="icon">
+
+  <title>NFT DEMO</title>  
+
+	<link href="./main.3f6952e4.css" rel="stylesheet">	
+	<link href="css/style.css" rel="stylesheet" />
+	<script src="js/config.js"></script>
+	<script src="js/demoMintScript.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.js" integrity="sha512-XQDG6H87RgMf+aNFwDPCUcFwUf3t9liyqN/2BkJ8KGixupbjPwQHNhypNA972mLIkg4KPo4lkGmqAf3yfDz8hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body class="minimal">
+<div id="site-border-left"></div>
+<div id="site-border-right"></div>
+<div id="site-border-top"></div>
+<div id="site-border-bottom"></div>
+<!-- Add your content of header -->
+<header>
+
+  <nav class="navbar  navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav ">
+			  <li><a href="https://www.cryptocoin.kr/entry/%ED%81%B4%EB%A0%88%EC%9D%B4%ED%8A%BC-%EC%A7%80%EA%B0%91-KaiKas-%EC%84%A4%EC%B9%98-%ED%95%98%EA%B8%B0-PC-%ED%81%AC%EB%A1%AC" title="" target="_blank">01 : 지갑 연동</a></li>
+			  <li><a href="http://wiki.hash.kr/index.php/%EB%AF%BC%ED%8C%85" title="" target="_blank">02 : 민팅</a></li>
+			  <li><a href="https://suhamoon.tistory.com/408" title="" target="_blank">03 : 리빌</a></li>
+			  <li><a href="https://ko.docs.klaytn.foundation/dapp/sdk/caver-js/api-references/caver.kct/kip17#kip17-burn" title="" target="_blank">04 : 소각</a></li>
+			  <li><a href="https://testnets.opensea.io/account" title="" target="_blank">OPENSEA TEST NFT 확인 </a></li>
+			</ul>
+		</div> 
+    </div>
+    <div class="custom_menu-btn">
+    <button id='close_bnt' onclick="openNav()" style="display: none;">
+      <span class="s-1">
+  
+      </span>
+      <span class="s-2">
+  
+      </span>
+      <span class="s-3">
+  
+      </span>
+    </button>
+  </div>
+  </nav>
+</header>
+
+
+<!-- Add your site or app content here -->
+  <div class="hero-full-container background-image-container white-text-container" style="background-image: url('./assets/images/space.jpg')">
+	
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="hero-full-wrapper">
+            <div class="text-content">
+              <h1 id="typed-header"><span>1. 지갑 연동</span><br>
+                <span id="typed-strings">
+                  <span>kaikas</span>
+                  <span>지갑을 연결해 주세요.</span>
+                  <span>지갑 설치가 안된 분은 상단 링크를 참조해 주세요.</span>
+                </span>
+                <span id="typed">
+				</span>
+			</h1>
+			
+            </div>
+          </div>
+        </div>
+      </div>
+		<a href="javascript:void(0);" id="b_button" onclick="mintNFT()"; class="button" data-text="MINT" style="position:absolute;top: 80%;left:50%;display: none;">
+		</a>
+    </div>
+	<div id="myNav" class="overlay">
+		<div class="overlay-content hero-full-wrapper" >
+		  <h1 id="message-string"></h1>
+      <img id="ex-screen" src="images/ex-img-1.png" alt="" style="display: block;width: 65%;left: 25%;position: absolute;top: -10%;"/>
+		</div>
+	  </div>
+  </div>
+
+  
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     type();
+     movingBackgroundImage();
+  });
+</script>
+
+
+<script type="text/javascript" src="./main.70a66962.js"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", async function (event) {
+		await connect()
+		state = 1 
+    // check_status();
+		typedInit()
+	});
+</script>
+
+<script>
+    function openNav() {
+      document.getElementById("myNav").classList.toggle("menu_width")
+      document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
+
+      let obj = document.getElementById(`close_bnt`)
+      let style_display = obj.style.display
+    
+      if(style_display=='block') obj.style.display='none'
+      else obj.style.display = 'block'
+    }
+  </script>
+</body>
+
+</html>
