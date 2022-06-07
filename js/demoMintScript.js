@@ -182,17 +182,20 @@ async function mintNFT(){
         typedInit()
         return
     }
-    console.log('1')
+    console.log('1 : ' + cnt)
     const total_value = BigNumber(amount * mintPrice);
     console.log('2')
     const myContract = new caver.klay.Contract(ABI, CONTRACTADDRESS);
     console.log("account : " + account)
 
-    /*const value      =  await myContract.methods.mintNFT(uri).estimateGas({
-        from: account,
-        gas: 6000000,
-        value: caver.utils.toPeb(1, 'KLAY')
-    })
+    const value      =  await myContract.methods.mintNFT(uri).estimateGas(
+        
+        {
+            from: account,
+            gas: 6000000,
+            value: total_value  
+        }
+    )
     .then(function (gasAmount) {
         console.log("test")
         estmated_gas = gasAmount;
@@ -201,15 +204,15 @@ async function mintNFT(){
             .send({
                 from: account,
                 gas: estmated_gas,
-                value: caver.utils.toPeb(1, 'KLAY')
+                value: total_value
             })
     })
     .catch(function (error) {
         console.log(error);
         alert("민팅에 실패하였습니다.");
-    });*/
+    });
 
-    await myContract.methods.mintNFT(uri)
+    /*await myContract.methods.mintNFT(uri)
         .estimateGas({
             from: account,
             gas: 6000000,
@@ -228,7 +231,7 @@ async function mintNFT(){
         .catch(function (error) {
             console.log(error);
             alert("민팅에 실패하였습니다.");
-        });
+        });*/
 
     openNav()
     exScreen()
@@ -238,7 +241,7 @@ async function mintNFT(){
 const reveal = async () =>{
     
     let tokenId = 0
-    let tokenUri
+    let tokenUri = ""
 
     tokenId     = await myNFTtokenId()
     tokenUri    = await tokenURI()
@@ -256,11 +259,13 @@ const reveal = async () =>{
 
     const myContract = new caver.klay.Contract(ABI, CONTRACTADDRESS);
 
-    const value      =  await myContract.methods.changeTokenURI(tokenId, revealUri).estimateGas({
+    const value      =  
+    await myContract.methods.changeTokenURI(tokenId, revealUri).estimateGas({
         from: account,
         gas: 6000000
     })
     .then(function (gasAmount) {
+
         estmated_gas = gasAmount;
         console.log("gas :" + estmated_gas);
         myContract.methods.changeTokenURI(tokenId, revealUri)
@@ -286,14 +291,14 @@ const burn = async () =>{
 
     const myContract = new caver.klay.Contract(ABI, CONTRACTADDRESS);
 
-    const value      =  await myContract.methods.burn(tokenId).estimateGas({
+    const value      =  await myContract.methods.everyBurn(tokenId).estimateGas({
         from: account,
         gas: 6000000
     })
     .then(function (gasAmount) {
         estmated_gas = gasAmount;
         console.log("gas :" + estmated_gas);
-        myContract.methods.burn(tokenId)
+        myContract.methods.everyBurn(tokenId)
             .send({
                 from: account,
                 gas: estmated_gas
