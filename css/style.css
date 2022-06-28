@@ -511,7 +511,7 @@ a:focus {
 
 .team_social {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .team_follow h6 {
